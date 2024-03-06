@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV_FORM</title>
+</head>
+<body>
+    
+    <span id = "io">
+        this is first page
+    </span>
+    <script>
+        let id1 = localStorage.getItem('id');
+        console.log(id1);
+        document.querySelector('#io').innerHTML = id1;
+
+    </script>
+</body>
+</html>
