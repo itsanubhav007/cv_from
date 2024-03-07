@@ -13,25 +13,17 @@
  
     <button type="button " onclick="window.print()">Download</button>
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const dataString = urlParams.get('id');
-
-    if (dataString) {
-      try {
-        console.log(dataString);
-        const data = JSON.parse(decodeURIComponent(dataString));
-        document.getElementById('firstName').innerHTML = data.name;
-        document.getElementById('lastName').innerHTML = data.lastname;
-      } catch (error) {
-        console.error('Error parsing data:', error);
-      }
-    } else {
-      document.write('No data found in URL.');
-    }
-
-    function goto(){
-      windows.print();
-    }
+    let b = document.querySelector('#firstName');
+    let c = document.querySelector('#lastName');
+   
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const firstName = urlParams.get('fname');
+    const lastName = urlParams.get('lname');
+     b.innerHTML = firstName;
+     c.innerHTML = lastName;
+console.log(`First name: ${firstName}`);
+console.log(`Last name: ${lastName}`);
   </script>
 
 </body>
