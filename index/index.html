@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Form</title>
+</head>
+<body>
+  <h1>Create Your CV</h1>
+    <label for="name">First name:</label>
+    <input type="text" id="name" name="fname" required><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lastname" name="lname" required><br><br>
+    <input type="submit" id = "submit" onclick = 'submitForm1(value)' value = 'index1.html'>
+    <input type="submit" id = "submit" onclick = 'submitForm2(value)' value = 'index2.html'>
+  <script>
+  
+
+    function submitForm1(event) {
+      // Prevent default form submission
+
+      const firstName = document.getElementById('name').value;
+      const lastName = document.getElementById('lastname').value;
+
+     // if (firstName.trim() === '' || lastName.trim() === '') {
+     //   alert('Please fill in both first and last names.');
+     //   return;
+     // }
+
+      const data = {
+        name: firstName,
+        lastname: lastName
+      };
+
+      const dataString = JSON.stringify(data);
+      const url = "index1.html?id=" + encodeURIComponent(dataString);
+      window.location.href = url;
+    }
+
+
+    
+    function submitForm2(event) {
+      // Prevent default form submission
+
+      const firstName = document.getElementById('name').value;
+      const lastName = document.getElementById('lastname').value;
+
+      if (firstName.trim() === '' || lastName.trim() === '') {
+        alert('Please fill in both first and last names.');
+        return;
+      }
+
+      const data = {
+        name: firstName,
+        lastname: lastName
+      };
+
+      const dataString = JSON.stringify(data);
+      const url = "index2.html?id=" + encodeURIComponent(dataString);
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

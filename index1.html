@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV_FORM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Preview</title>
 </head>
 <body>
-    
-    <span id = "io">
-        this is first page
-    </span>
-    <script>
-        let id1 = localStorage.getItem('id');
-        console.log(id1);
-        document.querySelector('#io').innerHTML = id1;
+  <h1>Review Your CV</h1>
 
-    </script>
+  <p>First Name: <span id="firstName"></span></p>
+  <p>Last Name: <span id="lastName"></span></p>
+ 
+    <button type="button " onclick="window.print()">Download</button>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const dataString = urlParams.get('id');
+
+    if (dataString) {
+      try {
+        console.log(dataString);
+        const data = JSON.parse(decodeURIComponent(dataString));
+        document.getElementById('firstName').innerHTML = data.name;
+        document.getElementById('lastName').innerHTML = data.lastname;
+      } catch (error) {
+        console.error('Error parsing data:', error);
+      }
+    } else {
+      document.write('No data found in URL.');
+    }
+
+    function goto(){
+      windows.print();
+    }
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Form1</title>
+</head>
+<body>
+  <form action = 'index.html' method = "get">
+    <label for="name">First name:</label>
+    <input type="text" id="name" name="fname" required><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lastname" name="lname" required><br><br>
+    <input type="submit" id = "submit" onclick = 'submitForm1(value)' value = 'index1.html'>
+    <input type="submit" id = "submit" onclick = 'submitForm2(value)' value = 'index2.html'>
+  </form>    
+
+  <script>
+    function submitForm1(value)
+    {
+      let b = document.querySelector('form');
+      b.action = value;
+    }
+    function submitForm2(value)
+    {
+      let b = document.querySelector('form');
+      b.action = value;
+    }
+  </script>
+</body>
+</html>
